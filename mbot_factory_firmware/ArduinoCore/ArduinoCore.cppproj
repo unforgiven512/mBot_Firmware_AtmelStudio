@@ -32,26 +32,31 @@
     <EraseKey />
     <AsfFrameworkConfig>
       <framework-data xmlns="">
-  <options />
-  <configurations />
-  <files />
-  <documentation help="" />
-  <offline-documentation help="" />
-  <dependencies>
-    <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.52.0" />
-  </dependencies>
-</framework-data>
+        <options />
+        <configurations />
+        <files />
+        <documentation help="" />
+        <offline-documentation help="" />
+        <dependencies>
+          <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.52.0" />
+        </dependencies>
+      </framework-data>
     </AsfFrameworkConfig>
+    <AAFDebugger>
+      <AAFDebugFiles xmlns="">
+      </AAFDebugFiles>
+    </AAFDebugger>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <ToolchainSettings>
       <AvrGccCpp>
   <avrgcc.common.Device>-mmcu=atmega328p -B "%24(PackRepoDir)\Atmel\ATmega_DFP\2.0.401\gcc\dev\atmega328p"</avrgcc.common.Device>
+  <avrgcc.common.optimization.RelaxBranches>True</avrgcc.common.optimization.RelaxBranches>
   <avrgcc.common.outputfiles.hex>True</avrgcc.common.outputfiles.hex>
   <avrgcc.common.outputfiles.lss>True</avrgcc.common.outputfiles.lss>
   <avrgcc.common.outputfiles.eep>True</avrgcc.common.outputfiles.eep>
   <avrgcc.common.outputfiles.srec>True</avrgcc.common.outputfiles.srec>
-  <avrgcc.common.outputfiles.usersignatures>False</avrgcc.common.outputfiles.usersignatures>
+  <avrgcc.common.outputfiles.usersignatures>True</avrgcc.common.outputfiles.usersignatures>
   <avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>
   <avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>
   <avrgcc.compiler.symbols.DefSymbols>
@@ -66,10 +71,18 @@
       <Value>USB_MANUFACTURER="\"Arduino LLC\""</Value>
     </ListValues>
   </avrgcc.compiler.symbols.DefSymbols>
+  <avrgcc.compiler.preprocessor.UndefSymbols>
+    <ListValues>
+      <Value>DEBUG</Value>
+      <Value>__DOXYGEN__</Value>
+    </ListValues>
+  </avrgcc.compiler.preprocessor.UndefSymbols>
   <avrgcc.compiler.directories.IncludePaths>
     <ListValues>
       <Value>%24(PackRepoDir)\Atmel\ATmega_DFP\2.0.401\include\</Value>
-      <Value>..\include\libraries\wire</Value>
+      <Value>../include/libraries/Makeblock-Libraries/utility/avr</Value>
+      <Value>../include/libraries/Makeblock-Libraries/utility</Value>
+      <Value>../include/libraries/Makeblock-Libraries</Value>
       <Value>..\include\core</Value>
       <Value>..\include\variants\standard</Value>
     </ListValues>
@@ -78,9 +91,8 @@
   <avrgcc.compiler.optimization.OtherFlags>-fno-threadsafe-statics</avrgcc.compiler.optimization.OtherFlags>
   <avrgcc.compiler.optimization.PackStructureMembers>True</avrgcc.compiler.optimization.PackStructureMembers>
   <avrgcc.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcc.compiler.optimization.AllocateBytesNeededForEnum>
-  <avrgcc.compiler.optimization.DebugLevel>Default (-g2)</avrgcc.compiler.optimization.DebugLevel>
-  <avrgcc.compiler.warnings.InhibitAllWarnings>True</avrgcc.compiler.warnings.InhibitAllWarnings>
-  <avrgcc.compiler.miscellaneous.OtherFlags>-std=gnu99 -std=gnu11</avrgcc.compiler.miscellaneous.OtherFlags>
+  <avrgcc.compiler.warnings.AllWarnings>True</avrgcc.compiler.warnings.AllWarnings>
+  <avrgcc.compiler.miscellaneous.OtherFlags>-pipe -std=gnu11</avrgcc.compiler.miscellaneous.OtherFlags>
   <avrgcccpp.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcccpp.compiler.general.ChangeDefaultCharTypeUnsigned>
   <avrgcccpp.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcccpp.compiler.general.ChangeDefaultBitFieldUnsigned>
   <avrgcccpp.compiler.symbols.DefSymbols>
@@ -95,10 +107,18 @@
       <Value>USB_MANUFACTURER="\"Arduino LLC\""</Value>
     </ListValues>
   </avrgcccpp.compiler.symbols.DefSymbols>
+  <avrgcccpp.compiler.preprocessor.UndefSymbols>
+    <ListValues>
+      <Value>DEBUG</Value>
+      <Value>__DOXYGEN__</Value>
+    </ListValues>
+  </avrgcccpp.compiler.preprocessor.UndefSymbols>
   <avrgcccpp.compiler.directories.IncludePaths>
     <ListValues>
       <Value>%24(PackRepoDir)\Atmel\ATmega_DFP\2.0.401\include\</Value>
-      <Value>..\include\libraries\wire</Value>
+      <Value>../include/libraries/Makeblock-Libraries/utility/avr</Value>
+      <Value>../include/libraries/Makeblock-Libraries/utility</Value>
+      <Value>../include/libraries/Makeblock-Libraries</Value>
       <Value>..\include\core</Value>
       <Value>..\include\variants\standard</Value>
     </ListValues>
@@ -107,21 +127,23 @@
   <avrgcccpp.compiler.optimization.OtherFlags>-fno-threadsafe-statics</avrgcccpp.compiler.optimization.OtherFlags>
   <avrgcccpp.compiler.optimization.PackStructureMembers>True</avrgcccpp.compiler.optimization.PackStructureMembers>
   <avrgcccpp.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcccpp.compiler.optimization.AllocateBytesNeededForEnum>
-  <avrgcccpp.compiler.optimization.DebugLevel>Default (-g2)</avrgcccpp.compiler.optimization.DebugLevel>
-  <avrgcccpp.compiler.warnings.InhibitAllWarnings>True</avrgcccpp.compiler.warnings.InhibitAllWarnings>
-  <avrgcccpp.compiler.miscellaneous.OtherFlags>-std=gnu++11</avrgcccpp.compiler.miscellaneous.OtherFlags>
+  <avrgcccpp.compiler.warnings.AllWarnings>True</avrgcccpp.compiler.warnings.AllWarnings>
+  <avrgcccpp.compiler.miscellaneous.OtherFlags>-pipe -std=gnu++14</avrgcccpp.compiler.miscellaneous.OtherFlags>
   <avrgcccpp.linker.libraries.Libraries>
     <ListValues>
       <Value>libm</Value>
     </ListValues>
   </avrgcccpp.linker.libraries.Libraries>
   <avrgcccpp.linker.miscellaneous.LinkerFlags>-Os</avrgcccpp.linker.miscellaneous.LinkerFlags>
+  <avrgcccpp.assembler.general.AssemblerFlags>-DNDEBUG -UDEBUG -U__DOXYGEN__</avrgcccpp.assembler.general.AssemblerFlags>
   <avrgcccpp.assembler.general.IncludePaths>
     <ListValues>
       <Value>%24(PackRepoDir)\Atmel\ATmega_DFP\2.0.401\include\</Value>
+      <Value>../include/libraries/Makeblock-Libraries/utility/avr</Value>
+      <Value>../include/libraries/Makeblock-Libraries/utility</Value>
+      <Value>../include/libraries/Makeblock-Libraries</Value>
     </ListValues>
   </avrgcccpp.assembler.general.IncludePaths>
-  <avrgcccpp.assembler.debugging.DebugLevel>Default (-Wa,-g)</avrgcccpp.assembler.debugging.DebugLevel>
 </AvrGccCpp>
     </ToolchainSettings>
   </PropertyGroup>
@@ -148,10 +170,18 @@
       <Value>USB_MANUFACTURER="\"Arduino LLC\""</Value>
     </ListValues>
   </avrgcc.compiler.symbols.DefSymbols>
+  <avrgcc.compiler.preprocessor.UndefSymbols>
+    <ListValues>
+      <Value>NDEBUG</Value>
+      <Value>__DOXYGEN__</Value>
+    </ListValues>
+  </avrgcc.compiler.preprocessor.UndefSymbols>
   <avrgcc.compiler.directories.IncludePaths>
     <ListValues>
       <Value>%24(PackRepoDir)\Atmel\ATmega_DFP\2.0.401\include\</Value>
-      <Value>..\include\libraries\wire</Value>
+      <Value>../include/libraries/Makeblock-Libraries/utility/avr</Value>
+      <Value>../include/libraries/Makeblock-Libraries/utility</Value>
+      <Value>../include/libraries/Makeblock-Libraries</Value>
       <Value>..\include\core</Value>
       <Value>..\include\variants\standard</Value>
     </ListValues>
@@ -161,8 +191,11 @@
   <avrgcc.compiler.optimization.PackStructureMembers>True</avrgcc.compiler.optimization.PackStructureMembers>
   <avrgcc.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcc.compiler.optimization.AllocateBytesNeededForEnum>
   <avrgcc.compiler.optimization.DebugLevel>Default (-g2)</avrgcc.compiler.optimization.DebugLevel>
-  <avrgcc.compiler.warnings.InhibitAllWarnings>True</avrgcc.compiler.warnings.InhibitAllWarnings>
-  <avrgcc.compiler.miscellaneous.OtherFlags>-std=gnu99 -std=gnu11</avrgcc.compiler.miscellaneous.OtherFlags>
+  <avrgcc.compiler.warnings.AllWarnings>True</avrgcc.compiler.warnings.AllWarnings>
+  <avrgcc.compiler.warnings.ExtraWarnings>True</avrgcc.compiler.warnings.ExtraWarnings>
+  <avrgcc.compiler.warnings.Undefined>True</avrgcc.compiler.warnings.Undefined>
+  <avrgcc.compiler.miscellaneous.OtherFlags>-pipe -std=gnu11</avrgcc.compiler.miscellaneous.OtherFlags>
+  <avrgcc.compiler.miscellaneous.Verbose>True</avrgcc.compiler.miscellaneous.Verbose>
   <avrgcccpp.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcccpp.compiler.general.ChangeDefaultCharTypeUnsigned>
   <avrgcccpp.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcccpp.compiler.general.ChangeDefaultBitFieldUnsigned>
   <avrgcccpp.compiler.symbols.DefSymbols>
@@ -177,10 +210,18 @@
       <Value>USB_MANUFACTURER="\"Arduino LLC\""</Value>
     </ListValues>
   </avrgcccpp.compiler.symbols.DefSymbols>
+  <avrgcccpp.compiler.preprocessor.UndefSymbols>
+    <ListValues>
+      <Value>NDEBUG</Value>
+      <Value>__DOXYGEN__</Value>
+    </ListValues>
+  </avrgcccpp.compiler.preprocessor.UndefSymbols>
   <avrgcccpp.compiler.directories.IncludePaths>
     <ListValues>
       <Value>%24(PackRepoDir)\Atmel\ATmega_DFP\2.0.401\include\</Value>
-      <Value>..\include\libraries\wire</Value>
+      <Value>../include/libraries/Makeblock-Libraries/utility/avr</Value>
+      <Value>../include/libraries/Makeblock-Libraries/utility</Value>
+      <Value>../include/libraries/Makeblock-Libraries</Value>
       <Value>..\include\core</Value>
       <Value>..\include\variants\standard</Value>
     </ListValues>
@@ -190,19 +231,25 @@
   <avrgcccpp.compiler.optimization.PackStructureMembers>True</avrgcccpp.compiler.optimization.PackStructureMembers>
   <avrgcccpp.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcccpp.compiler.optimization.AllocateBytesNeededForEnum>
   <avrgcccpp.compiler.optimization.DebugLevel>Default (-g2)</avrgcccpp.compiler.optimization.DebugLevel>
-  <avrgcccpp.compiler.warnings.InhibitAllWarnings>True</avrgcccpp.compiler.warnings.InhibitAllWarnings>
-  <avrgcccpp.compiler.miscellaneous.OtherFlags>-std=gnu++11</avrgcccpp.compiler.miscellaneous.OtherFlags>
+  <avrgcccpp.compiler.warnings.AllWarnings>True</avrgcccpp.compiler.warnings.AllWarnings>
+  <avrgcccpp.compiler.warnings.Undefined>True</avrgcccpp.compiler.warnings.Undefined>
+  <avrgcccpp.compiler.miscellaneous.OtherFlags>-pipe -std=gnu++14</avrgcccpp.compiler.miscellaneous.OtherFlags>
+  <avrgcccpp.compiler.miscellaneous.Verbose>True</avrgcccpp.compiler.miscellaneous.Verbose>
   <avrgcccpp.linker.libraries.Libraries>
     <ListValues>
       <Value>libm</Value>
     </ListValues>
   </avrgcccpp.linker.libraries.Libraries>
-  <avrgcccpp.linker.miscellaneous.LinkerFlags>-Os</avrgcccpp.linker.miscellaneous.LinkerFlags>
+  <avrgcccpp.linker.miscellaneous.LinkerFlags>-Os -Wl,--cref</avrgcccpp.linker.miscellaneous.LinkerFlags>
   <avrgcccpp.assembler.general.IncludePaths>
     <ListValues>
       <Value>%24(PackRepoDir)\Atmel\ATmega_DFP\2.0.401\include\</Value>
+      <Value>../include/libraries/Makeblock-Libraries/utility/avr</Value>
+      <Value>../include/libraries/Makeblock-Libraries/utility</Value>
+      <Value>../include/libraries/Makeblock-Libraries</Value>
     </ListValues>
   </avrgcccpp.assembler.general.IncludePaths>
+  <avrgcccpp.assembler.general.AnounceVersion>True</avrgcccpp.assembler.general.AnounceVersion>
   <avrgcccpp.assembler.debugging.DebugLevel>Default (-Wa,-g)</avrgcccpp.assembler.debugging.DebugLevel>
 </AvrGccCpp>
     </ToolchainSettings>
@@ -265,7 +312,196 @@
     <Compile Include="include\core\WString.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="include\libraries\wire\Wire.h">
+    <Compile Include="include\libraries\Makeblock-Libraries\Me4Button.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Makeblock-Libraries\Me7SegmentDisplay.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Makeblock-Libraries\MeAuriga.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Makeblock-Libraries\MeBaseBoard.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Makeblock-Libraries\MeBluetooth.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Makeblock-Libraries\MeBuzzer.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Makeblock-Libraries\MeColorSensor.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Makeblock-Libraries\MeCompass.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Makeblock-Libraries\MeConfig.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Makeblock-Libraries\MeDCMotor.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Makeblock-Libraries\MeEEPROM.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Makeblock-Libraries\MeEncoderMotor.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Makeblock-Libraries\MeEncoderNew.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Makeblock-Libraries\MeEncoderOnBoard.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Makeblock-Libraries\MeFlameSensor.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Makeblock-Libraries\MeGasSensor.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Makeblock-Libraries\MeGyro.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Makeblock-Libraries\MeHostParser.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Makeblock-Libraries\MeHumitureSensor.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Makeblock-Libraries\MeInfraredReceiver.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Makeblock-Libraries\MeIR.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Makeblock-Libraries\MeJoystick.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Makeblock-Libraries\MeLEDMatrix.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Makeblock-Libraries\MeLEDMatrixData.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Makeblock-Libraries\MeLightSensor.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Makeblock-Libraries\MeLimitSwitch.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Makeblock-Libraries\MeLineFollower.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Makeblock-Libraries\MeMbotDCMotor.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Makeblock-Libraries\MeMCore.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Makeblock-Libraries\MeMegaPi.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Makeblock-Libraries\MeMegaPiDCMotor.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Makeblock-Libraries\MeMegaPiPro.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Makeblock-Libraries\MeMegaPiPro4DcMotor.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Makeblock-Libraries\MeMegaPiProESCMotor.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Makeblock-Libraries\MeOnBoardTemp.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Makeblock-Libraries\MeOneWire.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Makeblock-Libraries\MeOrion.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Makeblock-Libraries\MePIRMotionSensor.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Makeblock-Libraries\MePm25Sensor.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Makeblock-Libraries\MePort.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Makeblock-Libraries\MePotentiometer.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Makeblock-Libraries\MePressureSensor.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Makeblock-Libraries\MePS2.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Makeblock-Libraries\MeRGBLed.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Makeblock-Libraries\MeSerial.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Makeblock-Libraries\MeShield.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Makeblock-Libraries\MeShutter.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Makeblock-Libraries\MeSmartServo.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Makeblock-Libraries\MeSoundSensor.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Makeblock-Libraries\MeStepper.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Makeblock-Libraries\MeStepperOnBoard.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Makeblock-Libraries\MeTemperature.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Makeblock-Libraries\MeTouchSensor.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Makeblock-Libraries\MeUltrasonicSensor.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Makeblock-Libraries\MeUSBHost.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Makeblock-Libraries\MeVoice.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Makeblock-Libraries\MeWifi.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Makeblock-Libraries\utility\avr\ServoTimers.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Makeblock-Libraries\utility\EEPROM.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Makeblock-Libraries\utility\Servo.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Makeblock-Libraries\utility\SoftwareSerial.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Makeblock-Libraries\utility\SPI.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Makeblock-Libraries\utility\twi.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Makeblock-Libraries\utility\Wire.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="include\variants\standard\pins_arduino.h">
@@ -346,7 +582,148 @@
     <Compile Include="src\core\WString.cpp">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\libraries\wire\Wire.cpp">
+    <Compile Include="src\libraries\Makeblock-Libraries\Me4Button.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\libraries\Makeblock-Libraries\Me7SegmentDisplay.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\libraries\Makeblock-Libraries\MeBluetooth.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\libraries\Makeblock-Libraries\MeBuzzer.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\libraries\Makeblock-Libraries\MeColorSensor.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\libraries\Makeblock-Libraries\MeCompass.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\libraries\Makeblock-Libraries\MeDCMotor.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\libraries\Makeblock-Libraries\MeEncoderMotor.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\libraries\Makeblock-Libraries\MeEncoderNew.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\libraries\Makeblock-Libraries\MeEncoderOnBoard.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\libraries\Makeblock-Libraries\MeFlameSensor.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\libraries\Makeblock-Libraries\MeGasSensor.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\libraries\Makeblock-Libraries\MeGyro.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\libraries\Makeblock-Libraries\MeHostParser.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\libraries\Makeblock-Libraries\MeHumitureSensor.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\libraries\Makeblock-Libraries\MeInfraredReceiver.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\libraries\Makeblock-Libraries\MeIR.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\libraries\Makeblock-Libraries\MeJoystick.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\libraries\Makeblock-Libraries\MeLEDMatrix.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\libraries\Makeblock-Libraries\MeLightSensor.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\libraries\Makeblock-Libraries\MeLimitSwitch.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\libraries\Makeblock-Libraries\MeLineFollower.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\libraries\Makeblock-Libraries\MeMbotDCMotor.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\libraries\Makeblock-Libraries\MeMegaPiDCMotor.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\libraries\Makeblock-Libraries\MeMegaPiPro4DcMotor.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\libraries\Makeblock-Libraries\MeMegaPiProESCMotor.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\libraries\Makeblock-Libraries\MeOnBoardTemp.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\libraries\Makeblock-Libraries\MeOneWire.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\libraries\Makeblock-Libraries\MePIRMotionSensor.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\libraries\Makeblock-Libraries\MePm25Sensor.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\libraries\Makeblock-Libraries\MePort.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\libraries\Makeblock-Libraries\MePotentiometer.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\libraries\Makeblock-Libraries\MePressureSensor.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\libraries\Makeblock-Libraries\MePS2.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\libraries\Makeblock-Libraries\MeRGBLed.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\libraries\Makeblock-Libraries\MeSerial.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\libraries\Makeblock-Libraries\MeShutter.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\libraries\Makeblock-Libraries\MeSmartServo.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\libraries\Makeblock-Libraries\MeSoundSensor.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\libraries\Makeblock-Libraries\MeStepper.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\libraries\Makeblock-Libraries\MeStepperOnBoard.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\libraries\Makeblock-Libraries\MeTemperature.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\libraries\Makeblock-Libraries\MeTouchSensor.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\libraries\Makeblock-Libraries\MeUltrasonicSensor.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\libraries\Makeblock-Libraries\MeUSBHost.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\libraries\Makeblock-Libraries\MeVoice.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\libraries\Makeblock-Libraries\MeWifi.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\libraries\Makeblock-Libraries\utility\avr\Servo.cpp">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>
@@ -354,14 +731,18 @@
     <Folder Include="include\" />
     <Folder Include="include\core\" />
     <Folder Include="include\libraries\" />
-    <Folder Include="include\libraries\wire\" />
+    <Folder Include="include\libraries\Makeblock-Libraries" />
+    <Folder Include="include\libraries\Makeblock-Libraries\utility" />
+    <Folder Include="include\libraries\Makeblock-Libraries\utility\avr" />
     <Folder Include="include\variants\" />
     <Folder Include="include\variants\standard\" />
     <Folder Include="src\" />
     <Folder Include="src\core\" />
     <Folder Include="src\core\PreprocessingAssembly\" />
     <Folder Include="src\libraries\" />
-    <Folder Include="src\libraries\wire\" />
+    <Folder Include="src\libraries\Makeblock-Libraries" />
+    <Folder Include="src\libraries\Makeblock-Libraries\utility" />
+    <Folder Include="src\libraries\Makeblock-Libraries\utility\avr" />
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
 </Project>
